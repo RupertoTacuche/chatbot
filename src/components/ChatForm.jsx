@@ -8,7 +8,10 @@ const ChatForm = ({setChatHistory}) => {
         if (!userMessage) return;
         inputRef.current.value="";
 
+        // Update chat history with the user's message
         setChatHistory((history) => [...history, {role: "user", text: userMessage }]);
+       //Add a "Thinking..." placeholder for the bot's response
+        setTimeout(() => setChatHistory((history) => [...history, { role: "model", text: "Thinking..."}]),600);
     }
 
   return (
